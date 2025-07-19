@@ -20,6 +20,7 @@ PlasmoidItem {
     property alias curr_page    : pagerModel.currentPage
     property var customLabels   : cfg.labelsList.split('\n')
     property var customIcons    : cfg.iconsList.split('\n')
+    property bool showOnlyActive: cfg.showOnlyActive
 
     clip: false
 
