@@ -25,6 +25,7 @@ Kirigami.ScrollablePage {
     property alias cfg_labelsList: customLabels.text
     property alias cfg_labelExtra: extraCustomLabel.text
     property alias cfg_iconExtra: extraCustomIcon.text
+    property alias cfg_showOnlyActive: showOnlyActiveWorkspaces.checked
     //Decorations
     //Other
     property alias cfg_template: template.text
@@ -108,6 +109,12 @@ Kirigami.ScrollablePage {
                 onCheckedChanged: if(checked) type.style = 2
             }
         }
+
+        PC3.CheckBox {
+            id: showOnlyActiveWorkspaces
+            Kirigami.FormData.label: "Show only workspaces with windows:"
+        }
+
         QQC2.ComboBox {
             id: labelSource
             visible: cfg_type == 1

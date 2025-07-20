@@ -8,6 +8,7 @@ import "./Utils.js" as Utils
 
 Rectangle {
     id: reptRect
+    visible: root.showOnlyActive ? (hasWindows || isActive) : true
     Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
     color: "transparent"
     function updateGeometry(w,h) {
