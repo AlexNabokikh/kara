@@ -77,12 +77,19 @@ function usesHighlight() {
 }
 
 function updateTaskCount() {
-    taskCount = 0
+    taskCount = 0;
+    let hasDemanding = false;
     for (var i = 0; i < tasksModel.count; i++) {
-        const currentTask = tasksModel.index(i, 0)
-        if (currentTask === undefined) continue
-        if (tasksModel.data(currentTask, isWindow)) {
-            taskCount+=1
+        const currentTask = tasksModel.index(i, 0);
+        if (currentTask === undefined) continue;
+        const taskVirtualDesktops = tasksModel.data(currentTask, virtualDesktopsRole) || [];
+        const isOnThisDesktop = taskVirtualDesktops.includes(virtualDesktopInfo.desktopIds[pos]);
+        if (tasksModel.data(currentTask, isWindow) && isOnThisDesktop) {
+            taskCount += 1;
+            if (tasksModel.data(currentTask, demandsAttentionRole)) {
+                hasDemanding = true;
+            }
         }
     }
+    hasDemandingWindow = hasDemanding;
 }
