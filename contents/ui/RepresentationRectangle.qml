@@ -27,7 +27,7 @@ Rectangle {
     property int taskCount: 0
     property bool hasWindows: taskCount>0
     property bool hasDemandingWindow: false
-    property bool highlightActive: cfg.type != 0
+    property bool highlightActive: cfg.type != 0 && cfg.highlightType != 0
     property bool needsAttention: hasDemandingWindow
     property real highlightOpacity: Utils.getHighlightOpacity()
     property alias hovered: mouseArea.containsMouse
