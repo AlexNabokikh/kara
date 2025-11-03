@@ -10,7 +10,8 @@ if [ -d "$PLASMOID_DIR" ]; then
 	echo "Existing plasmoid found. Removing old version..."
 	rm -rf "$PLASMOID_DIR"
 else
-	echo "Plasmoid not found. Proceeding with new installation..."
+	echo "Plasmoid not found. Ensuring destination directory exists..."
+	mkdir -p "$(dirname "$PLASMOID_DIR")"
 fi
 
 echo "Installing plasmoid to $PLASMOID_DIR..."
