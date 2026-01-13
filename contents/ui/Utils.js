@@ -73,7 +73,7 @@ function getRepSource() {
     }
 }
 function usesHighlight() {
-    cfg.type != 0
+    return cfg.type != 0
 }
 
 function updateTaskCount() {
